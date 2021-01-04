@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization_Lat_vs_Wind</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <style>
+        .navbar-header {
+            background-color: #000000;    
+            border: radius 0;
+            font-weight: bold;
+            
+        }
+                     
+        .navbar-collapse {
+            background-color:#3eada8;
+               
+        }
+
+        .dropdown {
+            font-size: 16px;
+            font-family: 'Arial', Helvetica, sans-serif; 
+            text-align: left;
+            
+        }
+        .text {
+            font-size: 16px;
+            font-family: 'Arial', Helvetica, sans-serif; 
+           
+        }
+        
+        
+        #headerII {
+            color:#3eada8;
+            font-size: 18px;
+        }
+
+        #headerIII {
+            color:#3eada8; 
+            text-align: center;
+        }
+        #text {
+            font-size: 18px;
+            font-family: 'Arial', Helvetica, sans-serif; 
+            text-align: left;
+            
+            
+        }
+        #textII {
+            font-size: 36px;
+            font-family: 'Arial', Helvetica, sans-serif; 
+            text-align: center;
+            font-weight: bold;
+        }
+        .bold {
+            font-weight:bold;
+        }
+        .img {
+            
+            box-shadow: 10px 10px 10px rgb(48, 163, 157);
+            
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{url_for('index')}}">Latitude</a>
+          </div>
+                
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                           
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{url_for('compa')}}" class="text">Comparison</a></li>
+              <li><a href="{{url_for('data')}}" class="text">Data</a></li>
+              <li class="dropdown">
+                <a href="{{url_for('index')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{url_for('temp')}}">Temperature</a></li>
+                  <li><a href="{{url_for('humi')}}">Humidity</a></li>
+                  <li><a href="{{url_for('clou')}}">Cloudiness</a></li>
+                  <li><a href="{{url_for('wind')}}">Wind Speed</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+        
+    
+    <div id="headerII">
+        <p>
+            <h1 id="textII">Wind Speed</h1>
+
+        </p>        
+    </div>
+    <br/><br/>
+    <div class="container">
+        <div class="row">                
+            <div class="col-xs-8">
+                <p class="img">
+                    <a href="{{url_for('index')}}">
+                        <img src="{{url_for('static', filename='Fig4.png')}}" width="700" height="405" border="0">
+                    </a>
+                            
+                </p>
+            </div>
+            <div class="col-xs-4" id="text" class="bold">
+                
+                <p>
+                    The wind speed in the southern side decrease as one approaches the equator(0 Deg. Latitude) and tend to increase in the northern side as one approaches the equator.
+                    
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="headerIII">
+        <p>
+            <h2>Visualizations</h2>
+        </p>
+    </div>
+    
+    <br/>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+                <p>
+                    <a href="{{url_for('temp')}}">
+                        <img src="{{url_for('static', filename='Fig1.png')}}" width="300" height="205"/> 
+                    </a>
+                </p>
+            </div>
+            <div class="col-xs-3">
+                <p>
+                    <a href="{{url_for('humi')}}">
+                        <img src="{{url_for('static', filename='Fig2.png')}}" width="300" height="205"/> 
+                    </a>
+                </p>
+            </div>
+            <div class="col-xs-3">
+                <p>
+                    <a href="{{url_for('clou')}}">
+                        <img src="{{url_for('static', filename='Fig3.png')}}" width="300" height="205"/> 
+                    </a>
+                </P>
+            </div>
+            <div class="col-xs-3">
+                <p class="img">
+                    <a href="{{url_for('wind')}}">
+                        <img src="{{url_for('static', filename='Fig4.png')}}" width="300" height="205"/> 
+                    </a>   
+                </p>
+            </div>
+        </div> 
+    </div>   
+    
+
+</body>
+</html>
